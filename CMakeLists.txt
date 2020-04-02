@@ -7,7 +7,7 @@ set(CMAKE_CXX_STANDARD 14)
 
 add_executable(ActivityTracker main.cpp)
 
-set(CURSES_NEED_NCURSES, TRUE) # see https://cmake.org/cmake/help/v3.3/module/FindCurses.html
-find_package( Curses REQUIRED )
-include_directories( ${CURSES_INCLUDE_DIRS} )
-target_link_libraries( ActivityTracker ${CURSES_LIBRARIES} )
+
+set(SOURCE_FILES Activity.cpp Activity.h Time.cpp Time.h)
+add_library(core ${SOURCE_FILES})
+target_link_libraries(ActivityTracker core)
