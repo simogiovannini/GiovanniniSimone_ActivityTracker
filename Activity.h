@@ -11,12 +11,14 @@
 
 class Activity {
 public:
-    Activity(std::string description, Time *begin, Time *end);
+    Activity(std::string description, Time begin, Time end);
+
+    virtual ~Activity();
 
 private:
     std::string description;
-    Time *begin;
-    Time *end;
+    Time begin;
+    Time end;
 };
 
 
