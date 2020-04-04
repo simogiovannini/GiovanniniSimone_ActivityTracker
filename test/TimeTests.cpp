@@ -24,3 +24,11 @@ TEST(TimeTests, toString) {
     Time s(19, 0);
     EXPECT_EQ(s.toString(), "19:00");
 }
+
+TEST(TimeTests, isPrevious) {
+    Time t(18, 0), s(17, 15), u(18, 0), v(19, 45);
+
+    EXPECT_EQ(s.isPrevious(t), true);
+    EXPECT_EQ(t.isPrevious(u), false);
+    EXPECT_EQ(v.isPrevious(t), false);
+}
