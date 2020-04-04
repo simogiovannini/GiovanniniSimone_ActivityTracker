@@ -5,9 +5,18 @@
 #ifndef ACTIVITYTRACKER_DAY_H
 #define ACTIVITYTRACKER_DAY_H
 
+#include <list>
+#include <memory>
+#include "Date.h"
+#include "Activity.h"
 
 class Day {
+public:
+    explicit Day(std::unique_ptr<Date> &date);
 
+private:
+    std::unique_ptr<Date> date;
+    std::list<std::unique_ptr<Activity>> activities;
 };
 
 
