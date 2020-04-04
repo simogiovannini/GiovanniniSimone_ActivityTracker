@@ -5,6 +5,8 @@
 
 #include <utility>
 
-Activity::Activity(std::string description, Time begin, Time end) : description(std::move(description)), begin(begin),
-                                                                    end(end) {}
-
+Activity::Activity(std::string description, std::unique_ptr<Time> &begin, std::unique_ptr<Time> &end) {
+    this->description = std::move(description);
+    this->begin = std::move(begin);
+    this->end = std::move(end);
+}

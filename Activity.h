@@ -6,19 +6,20 @@
 #define ACTIVITYTRACKER_ACTIVITY_H
 
 #include <string>
+#include <memory>
 #include "Time.h"
 
 
 class Activity {
 public:
-    Activity(std::string description, Time begin, Time end);
+    Activity(std::string description, std::unique_ptr<Time> &begin, std::unique_ptr<Time> &end);
 
-    virtual ~Activity();
 
 private:
+
     std::string description;
-    Time begin;
-    Time end;
+    std::unique_ptr<Time> begin;
+    std::unique_ptr<Time> end;
 };
 
 
