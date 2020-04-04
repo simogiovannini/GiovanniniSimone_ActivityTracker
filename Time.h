@@ -13,6 +13,12 @@ public:
 
     std::string toString();
 
+    bool isPrevious(Time &other);
+
+    int getHour() { return hour; }
+
+    int getMinute() { return minute; }
+
 private:
     int hour;
     int minute;
