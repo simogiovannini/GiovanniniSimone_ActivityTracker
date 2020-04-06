@@ -14,6 +14,8 @@ class Day {
 public:
     explicit Day(std::unique_ptr<Date> &date);
 
+    Date *getDate();
+
 private:
     std::unique_ptr<Date> date;
     std::list<std::unique_ptr<Activity>> activities;

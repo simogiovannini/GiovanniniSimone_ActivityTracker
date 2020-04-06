@@ -14,6 +14,7 @@ class Activity {
 public:
     Activity(std::string description, std::unique_ptr<Time> &begin, std::unique_ptr<Time> &end);
 
+    Time *getBeginTime();
 
 private:
 

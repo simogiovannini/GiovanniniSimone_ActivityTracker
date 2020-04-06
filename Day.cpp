@@ -7,3 +7,7 @@
 Day::Day(std::unique_ptr<Date> &date) {
     this->date = std::move(date);
 }
+
+Date *Day::getDate() {
+    return date.get();
+}

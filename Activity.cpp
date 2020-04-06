@@ -10,3 +10,7 @@ Activity::Activity(std::string description, std::unique_ptr<Time> &begin, std::u
     this->begin = std::move(begin);
     this->end = std::move(end);
 }
+
+Time *Activity::getBeginTime() {
+    return begin.get();
+}
