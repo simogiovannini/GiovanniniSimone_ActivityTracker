@@ -10,13 +10,10 @@
 class Time {
 public:
     Time(int hour, int minute);
-
     std::string toString();
 
-    bool isPrevious(const Time other);
-
+    bool isPrevious(Time *other);
     int getHour() { return hour; }
-
     int getMinute() { return minute; }
 
 private:

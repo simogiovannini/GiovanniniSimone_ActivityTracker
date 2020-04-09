@@ -14,7 +14,17 @@ Date *Day::getDate() {
 }
 
 void Day::addActivity(Activity *&activity) {
-    activities.push_back(std::unique_ptr<Activity>(activity));
+    if (activities.empty())
+        activities.push_back(std::unique_ptr<Activity>(activity));
+    else {
+        auto it = activities.begin();
+        while (it != activities.end()) {
+            if (activity->getBeginTime()->isPrevious((*it)->getBeginTime()))
+                break;
+            it++;
+        }
+        activities.insert(it, std::unique_ptr<Activity>(activity));
+    }
 }
 
 std::string Day::toString() {
