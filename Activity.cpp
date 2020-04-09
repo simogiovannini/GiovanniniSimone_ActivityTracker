@@ -5,12 +5,18 @@
 
 #include <utility>
 
-Activity::Activity(std::string description, std::unique_ptr<Time> &begin, std::unique_ptr<Time> &end) {
+Activity::Activity(std::string description, Time *&begin, Time *&end) {
     this->description = std::move(description);
-    this->begin = std::move(begin);
-    this->end = std::move(end);
+    this->begin = std::unique_ptr<Time>(begin);
+    this->end = std::unique_ptr<Time>(end);
 }
 
 Time *Activity::getBeginTime() {
     return begin.get();
+}
+
+std::string Activity::toString() {
+
+    return "Descrizione: " + description + "\nOra inizio: " + begin->toString() + "\nOra fine: " + end->toString() +
+           "\n";
 }

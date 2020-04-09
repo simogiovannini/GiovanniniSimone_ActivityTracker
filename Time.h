@@ -13,7 +13,7 @@ public:
 
     std::string toString();
 
-    bool isPrevious(Time &other);
+    bool isPrevious(const Time other);
 
     int getHour() { return hour; }
 

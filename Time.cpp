@@ -14,15 +14,12 @@ std::string Time::toString() {
     return (std::to_string(hour) + ":" + min);
 }
 
-bool Time::isPrevious(Time &other) {
+bool Time::isPrevious(const Time other) {
     if (hour < other.hour)
         return true;
     else if (hour > other.hour)
         return false;
     else {
-        if (minute < other.minute)
-            return true;
-        else if (minute >= other.minute)
-            return false;
+        return minute < other.minute;
     }
 }
