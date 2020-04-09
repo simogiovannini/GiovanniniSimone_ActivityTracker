@@ -13,9 +13,16 @@
 class Day {
 public:
     explicit Day(Date *&date);
+
     Date *getDate();
+
     void addActivity(Activity *&activity);
+
     std::string toString();
+
+    int getActivitiesLength();
+
+    Activity *getFirstActivity();
 
 private:
     std::unique_ptr<Date> date;

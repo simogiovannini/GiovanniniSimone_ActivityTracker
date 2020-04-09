@@ -42,3 +42,11 @@ std::string Day::toString() {
     return res;
 }
 
+int Day::getActivitiesLength() {
+    return activities.size();
+}
+
+Activity *Day::getFirstActivity() {
+    return activities.front().get();
+}
+
