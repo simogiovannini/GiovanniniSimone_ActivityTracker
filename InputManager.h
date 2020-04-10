@@ -9,6 +9,8 @@
 class InputManager {
 public:
     static int getNumber(int min, int max);
+
+    static std::string getString();
 };
 
 

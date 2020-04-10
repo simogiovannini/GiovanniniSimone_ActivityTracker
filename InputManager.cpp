@@ -20,3 +20,9 @@ int InputManager::getNumber(int min, int max) {
     }
     return value;
 }
+
+std::string InputManager::getString() {
+    std::string s;
+    std::cin >> s;
+    return s;
+}
