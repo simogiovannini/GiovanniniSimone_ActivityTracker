@@ -12,10 +12,9 @@
 
 class Activity {
 public:
-    Activity(std::string description, Time *&begin, Time *&end);
+    Activity(std::string description, Time *begin, Time *end);
 
     Time *getBeginTime();
-
     std::string toString();
 
 private:

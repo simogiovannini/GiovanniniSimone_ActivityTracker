@@ -16,7 +16,7 @@ public:
 
     Date *getDate();
 
-    void addActivity(Activity *&activity);
+    void addActivity(Activity *activity);
 
     std::string toString();
 

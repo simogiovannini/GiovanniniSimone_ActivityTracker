@@ -13,7 +13,7 @@ Date *Day::getDate() {
     return date.get();
 }
 
-void Day::addActivity(Activity *&activity) {
+void Day::addActivity(Activity *activity) {
     if (activities.empty())
         activities.push_back(std::unique_ptr<Activity>(activity));
     else {

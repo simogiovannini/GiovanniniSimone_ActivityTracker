@@ -15,6 +15,8 @@ TEST(TimeTests, Constructor) {
 
     EXPECT_EQ(s->getHour(), 18);
     EXPECT_EQ(s->getMinute(), 0);
+
+    delete s;
 }
 
 TEST(TimeTests, toString) {
