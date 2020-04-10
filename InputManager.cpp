@@ -11,7 +11,9 @@ int InputManager::getNumber(int min, int max) {
         std::cin >> value;
 
         if (value < min || value > max) {
-            std::cout << "Devi inserire un valore compreso tra " << min << " e " << max << "!" << std::endl;
+            std::cout << "Devi inserire un valore compreso tra " << min << " e " << max << "!" << std::endl
+                      << "Valore:";
+            continue;
         }
 
         break;
