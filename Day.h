@@ -12,7 +12,7 @@
 
 class Day {
 public:
-    explicit Day(Date *&date);
+    explicit Day(Date *date);
 
     Date *getDate();
 

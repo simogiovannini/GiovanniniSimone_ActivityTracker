@@ -5,7 +5,7 @@
 #include <iostream>
 #include "Day.h"
 
-Day::Day(Date *&date) {
+Day::Day(Date *date) {
     this->date = std::unique_ptr<Date>(date);
 }
 
