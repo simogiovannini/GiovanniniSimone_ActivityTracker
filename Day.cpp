@@ -30,14 +30,18 @@ void Day::addActivity(Activity *activity) {
 std::string Day::toString() {
     std::string res;
     res += "Data: " + date->toString() + "\n\n";
-    res += "Lista attività:\n";
-    int index = 1;
-    auto it = activities.begin();
-    while (it != activities.end()) {
-        res += std::to_string(index) + ")\n";
-        res += (*it)->toString() + "\n";
-        it++;
-        index++;
+    if (activities.empty()) {
+        res += "Non hai registrato ancora nessuna attività!\n";
+    } else {
+        res += "Lista attività:\n";
+        int index = 1;
+        auto it = activities.begin();
+        while (it != activities.end()) {
+            res += std::to_string(index) + ")\n";
+            res += (*it)->toString() + "\n";
+            it++;
+            index++;
+        }
     }
     return res;
 }
