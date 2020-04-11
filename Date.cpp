@@ -3,7 +3,6 @@
 // Created by simone on 02/04/20.
 //
 
-#include <iostream>
 #include "Date.h"
 
 Date::Date(int day, int month, int year) : day(day), month(month), year(year) {
@@ -54,6 +53,18 @@ std::string Date::getShortString() {
         d = "0" + d;
 
     return std::to_string(year) + "/" + m + "/" + d;
+}
+
+Date *Date::dateFromString(std::string &date) {
+    std::string y = date.substr(0, 4);
+    std::string m = date.substr(5, 2);
+    std::string d = date.substr(8, 2);
+
+    int year = std::stoi(y);
+    int month = std::stoi(m);
+    int day = std::stoi(d);
+
+    return new Date(day, month, year);
 }
 
 

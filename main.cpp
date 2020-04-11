@@ -48,11 +48,12 @@ int main() {
             case 3:
                 std::cout << "\nInserisci data del giorno al quale ti vuoi spostare (yyyy/mm/dd): ";
                 std::string date = InputManager::getDate();
-                if (reg.findDay(date))
-                    std::cout << "si";
-                else
-                    std::cout << "no";
+                if (!reg.findDay(date))
+                    reg.addDay(new Day(Date::dateFromString(date)));
+                current = reg.getDay(date);
+                std::cout << "\nCambio data avvenuto con successo!";
                 break;
+            default:
         }
 
     } while (choice != 0);
