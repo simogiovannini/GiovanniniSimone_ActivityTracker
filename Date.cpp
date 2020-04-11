@@ -3,6 +3,7 @@
 // Created by simone on 02/04/20.
 //
 
+#include <iostream>
 #include "Date.h"
 
 Date::Date(int day, int month, int year) : day(day), month(month), year(year) {
@@ -40,11 +41,19 @@ std::string Date::toStringMonth() {
         case 12:
             return "Dec";
     };
-
+    return "";
 }
 
 std::string Date::getShortString() {
-    return std::to_string(year) + "/" + std::to_string(month) + "/" + std::to_string(day);
+    std::string m = std::to_string(month), d = std::to_string(day);
+
+    if (month < 10)
+        m = "0" + m;
+
+    if (day < 10)
+        d = "0" + d;
+
+    return std::to_string(year) + "/" + m + "/" + d;
 }
 
 
