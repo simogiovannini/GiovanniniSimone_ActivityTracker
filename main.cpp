@@ -53,7 +53,6 @@ int main() {
                 current = reg.getDay(date);
                 std::cout << "\nCambio data avvenuto con successo!";
                 break;
-            default:
         }
 
     } while (choice != 0);
