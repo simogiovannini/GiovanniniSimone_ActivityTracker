@@ -20,6 +20,6 @@ bool Time::isPrevious(Time *other) {
     else if (hour > other->hour)
         return false;
     else {
-        return minute < other->minute;
+        return minute <= other->minute;
     }
 }

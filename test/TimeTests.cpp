@@ -31,6 +31,6 @@ TEST(TimeTests, isPrevious) {
     Time t(18, 0), s(17, 15), u(18, 0), v(19, 45);
 
     EXPECT_EQ(s.isPrevious(&t), true);
-    EXPECT_EQ(t.isPrevious(&u), false);
+    EXPECT_EQ(t.isPrevious(&u), true);
     EXPECT_EQ(v.isPrevious(&t), false);
 }

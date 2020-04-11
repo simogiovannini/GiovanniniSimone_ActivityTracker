@@ -52,6 +52,6 @@ Date *getCurrentDate() {
 }
 
 void clearScreen() {
-    for (int n = 0; n < 10; n++)
+    for (int n = 0; n < 3; n++)
         std::cout << "\n\n\n\n\n\n\n\n\n\n";
 }
