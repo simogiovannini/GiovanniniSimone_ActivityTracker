@@ -6,7 +6,6 @@
 #include "ActivityFactory.h"
 #include <memory>
 
-
 Date *getCurrentDate();
 
 void clearScreen();
@@ -28,8 +27,17 @@ int main() {
         switch (choice) {
             case 1:
                 today.addActivity(ActivityFactory::createActivity());
+                std::cout << "\nInserimento avvenuto con successo!";
                 break;
             case 2:
+                if (today.getActivitiesLength() == 0) {
+                    std::cout << "\nNon c'è nessuna attività da eliminare!";
+                } else {
+                    std::cout << "\nInserisci indice attività da eliminare: ";
+                    int i = InputManager::getNumber(1, today.getActivitiesLength());
+                    today.removeActivity(i);
+                    std::cout << "\nEliminazione avvenuta con successo!";
+                }
                 break;
         }
 
@@ -52,6 +60,5 @@ Date *getCurrentDate() {
 }
 
 void clearScreen() {
-    for (int n = 0; n < 3; n++)
-        std::cout << "\n\n\n\n\n\n\n\n\n\n";
+    std::cout << "\n\n\n\n";
 }

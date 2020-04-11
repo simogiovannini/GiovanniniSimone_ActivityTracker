@@ -54,3 +54,10 @@ Activity *Day::getFirstActivity() {
     return activities.front().get();
 }
 
+void Day::removeActivity(int index) {
+    auto it = activities.begin();
+    for (int i = 0; i < index - 1; i++)
+        it++;
+    activities.erase(it);
+}
+

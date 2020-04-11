@@ -24,6 +24,8 @@ public:
 
     Activity *getFirstActivity();
 
+    void removeActivity(int index);
+
 private:
     std::unique_ptr<Date> date;
     std::list<std::unique_ptr<Activity>> activities;
