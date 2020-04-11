@@ -8,10 +8,16 @@
 
 #include <map>
 #include "Activity.h"
+#include "Day.h"
 
 class Register {
+public:
+    void addDay(Day *day);
+
+    bool findDay(std::string date);
+
 private:
-    std::map<std::string, std::unique_ptr<Activity>> days;
+    std::map<std::string, std::unique_ptr<Day>> days;
 };
 
 

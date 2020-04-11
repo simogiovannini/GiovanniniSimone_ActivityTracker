@@ -11,6 +11,11 @@ public:
     static int getNumber(int min, int max);
 
     static std::string getString();
+
+    static std::string getDate();
+
+private:
+    static bool checkFormatDate(std::string date);
 };
 
 

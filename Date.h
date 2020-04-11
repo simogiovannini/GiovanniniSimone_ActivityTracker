@@ -14,6 +14,8 @@ public:
 
     std::string toString();
 
+    std::string getShortString();
+
 private:
     int day;
     int month;

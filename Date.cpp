@@ -43,4 +43,8 @@ std::string Date::toStringMonth() {
 
 }
 
+std::string Date::getShortString() {
+    return std::to_string(year) + "/" + std::to_string(month) + "/" + std::to_string(day);
+}
+
 

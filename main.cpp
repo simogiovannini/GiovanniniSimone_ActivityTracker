@@ -4,40 +4,50 @@
 #include "Day.h"
 #include "InputManager.h"
 #include "ActivityFactory.h"
+#include "Register.h"
 #include <memory>
 
 Date *getCurrentDate();
 
 void clearScreen();
 
+void init(Register &reg, Day *&current);
+
 int main() {
-    Day today((getCurrentDate()));
+    Register reg;
+    Day *current;
+    init(reg, current);
     int choice;
 
     do {
         clearScreen();
-        std::cout << today.toString();
+        std::cout << current->toString();
         std::cout << "\n1) Aggiungi attività\n"
                      "2) Elimina attività\n"
+                     "3) Cambia giorno\n"
                      "0) Esci\n"
                      "Cosa vuoi fare? Inserisci scelta: ";
 
-        choice = InputManager::getNumber(0, 2);
+        choice = InputManager::getNumber(0, 3);
 
         switch (choice) {
             case 1:
-                today.addActivity(ActivityFactory::createActivity());
+                current->addActivity(ActivityFactory::createActivity());
                 std::cout << "\nInserimento avvenuto con successo!";
                 break;
             case 2:
-                if (today.getActivitiesLength() == 0) {
+                if (current->getActivitiesLength() == 0) {
                     std::cout << "\nNon c'è nessuna attività da eliminare!";
                 } else {
                     std::cout << "\nInserisci indice attività da eliminare: ";
-                    int i = InputManager::getNumber(1, today.getActivitiesLength());
-                    today.removeActivity(i);
+                    int i = InputManager::getNumber(1, current->getActivitiesLength());
+                    current->removeActivity(i);
                     std::cout << "\nEliminazione avvenuta con successo!";
                 }
+                break;
+            case 3:
+                std::cout << "\nInserisci data del giorno al quale ti vuoi spostare (yyyy/mm/dd): ";
+                std::string date = InputManager::getDate();
                 break;
         }
 
@@ -61,4 +71,9 @@ Date *getCurrentDate() {
 
 void clearScreen() {
     std::cout << "\n\n\n\n";
+}
+
+void init(Register &reg, Day *&current) {
+    current = new Day(getCurrentDate());
+    reg.addDay(current);
 }
