@@ -14,8 +14,6 @@ public:
 
     static std::string getDate();
 
-private:
-    static bool checkFormatDate(std::string date);
 };
 
 
