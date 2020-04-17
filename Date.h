@@ -18,6 +18,8 @@ public:
 
     static Date dateFromString(std::string &date);
 
+    static bool checkFormatDate(std::string date);
+
 private:
     int day;
     int month;
