@@ -12,23 +12,25 @@
 
 class Day {
 public:
-    explicit Day(Date *date);
+    Day();
 
-    Date *getDate();
+    explicit Day(Date date);
 
-    void addActivity(Activity *activity);
+    Date &getDate();
+
+    void addActivity(Activity activity);
 
     std::string toString();
 
     int getActivitiesLength();
 
-    Activity *getFirstActivity();
+    Activity &getFirstActivity();
 
     void removeActivity(int index);
 
 private:
-    std::unique_ptr<Date> date;
-    std::list<std::unique_ptr<Activity>> activities;
+    Date date;
+    std::list<Activity> activities;
 };
 
 

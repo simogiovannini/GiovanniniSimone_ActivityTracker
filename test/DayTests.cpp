@@ -6,36 +6,37 @@
 #include "../Day.h"
 
 TEST(DayTests, Constructor) {
-    Date *date = new Date(13, 5, 1999);
-    std::unique_ptr<Day> day(new Day(date));
-    EXPECT_EQ(day->getDate()->toString(), "13 Mag 1999");
+    Date date(13, 5, 1999);
+    Day day(date);
+    EXPECT_EQ(day.getDate().toString(), "13 Mag 1999");
 }
 
-TEST(DayTests, addActivity){
+TEST(DayTests, addActivity) {
     //controllo l'inserimento ordinato
-    Date* d = new Date(9, 4, 2020);
-    std::unique_ptr<Day> today(new Day(d));
 
-    Time* t1 = new Time(10, 0);
-    Time* t2 = new Time(12, 0);
+    Date d(9, 4, 2020);
+    Day today(d);
 
-    Activity* a = new Activity("studio", t1, t2);
+    Time t1(10, 0);
+    Time t2(12, 0);
 
-    today->addActivity(a);
+    Activity a("studio", t1, t2);
 
-    t1 = new Time(13, 0);
-    t2 = new Time(15,30);
+    today.addActivity(a);
 
-    a = new Activity("lettura", t1, t2);
+    Time t3(13, 0);
+    Time t4(15, 30);
 
-    today->addActivity(a);
+    Activity a1("lettura", t3, t4);
 
-    t1 = new Time(8, 15);
-    t2 = new Time(13,30);
+    today.addActivity(a1);
 
-    a = new Activity("allenamento", t1, t2);
+    Time t5(8, 15);
+    Time t6(13, 30);
 
-    today->addActivity(a);
+    Activity a2("allenamento", t5, t6);
 
-    EXPECT_EQ(a, today->getFirstActivity());
+    today.addActivity(a2);
+
+    EXPECT_EQ(a2.toString(), today.getFirstActivity().toString());
 }

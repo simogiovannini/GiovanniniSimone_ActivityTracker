@@ -16,7 +16,7 @@ public:
 
     std::string getShortString();
 
-    static Date *dateFromString(std::string &date);
+    static Date dateFromString(std::string &date);
 
 private:
     int day;

@@ -55,7 +55,7 @@ std::string Date::getShortString() {
     return std::to_string(year) + "/" + m + "/" + d;
 }
 
-Date *Date::dateFromString(std::string &date) {
+Date Date::dateFromString(std::string &date) {
     std::string y = date.substr(0, 4);
     std::string m = date.substr(5, 2);
     std::string d = date.substr(8, 2);
@@ -64,7 +64,8 @@ Date *Date::dateFromString(std::string &date) {
     int month = std::stoi(m);
     int day = std::stoi(d);
 
-    return new Date(day, month, year);
+    Date da(day, month, year);
+    return da;
 }
 
 

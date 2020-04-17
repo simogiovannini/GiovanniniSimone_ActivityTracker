@@ -11,12 +11,10 @@ TEST(TimeTests, Constructor) {
     EXPECT_EQ(t.getHour(), 17);
     EXPECT_EQ(t.getMinute(), 17);
 
-    Time *s = new Time(18, 0);
+    Time s(18, 0);
 
-    EXPECT_EQ(s->getHour(), 18);
-    EXPECT_EQ(s->getMinute(), 0);
-
-    delete s;
+    EXPECT_EQ(s.getHour(), 18);
+    EXPECT_EQ(s.getMinute(), 0);
 }
 
 TEST(TimeTests, toString) {
@@ -30,7 +28,7 @@ TEST(TimeTests, toString) {
 TEST(TimeTests, isPrevious) {
     Time t(18, 0), s(17, 15), u(18, 0), v(19, 45);
 
-    EXPECT_EQ(s.isPrevious(&t), true);
-    EXPECT_EQ(t.isPrevious(&u), true);
-    EXPECT_EQ(v.isPrevious(&t), false);
+    EXPECT_EQ(s.isPrevious(t), true);
+    EXPECT_EQ(t.isPrevious(u), true);
+    EXPECT_EQ(v.isPrevious(t), false);
 }

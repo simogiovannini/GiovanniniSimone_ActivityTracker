@@ -11,9 +11,9 @@
 
 class ActivityFactory {
 public:
-    static Time *createTime();
+    static Time createTime();
 
-    static Activity *createActivity();
+    static Activity createActivity();
 };
 
 

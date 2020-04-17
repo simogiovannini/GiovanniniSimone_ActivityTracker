@@ -6,36 +6,36 @@
 #include "ActivityFactory.h"
 #include "InputManager.h"
 
-Time *ActivityFactory::createTime() {
+Time ActivityFactory::createTime() {
     std::cout << "Inserisci ora: ";
     int hour = InputManager::getNumber(0, 23);
 
     std::cout << "Inserisci minuto: ";
     int minute = InputManager::getNumber(0, 59);
 
-    return new Time(hour, minute);
+    Time t(hour, minute);
+    return t;
 }
 
-Activity *ActivityFactory::createActivity() {
+Activity ActivityFactory::createActivity() {
     std::cout << "\nInserisci descrizione nuova attività: ";
     std::string description = InputManager::getString();
 
     std::cout << "A che ora hai iniziato?\n";
-    Time *begin = createTime();
+    Time begin = createTime();
 
-    Time *end;
+    Time end(0, 0);
     while (true) {
         std::cout << "A che ora hai finito?\n";
         end = createTime();
 
-        if (end->isPrevious(begin)) {
+        if (end.isPrevious(begin)) {
             std::cout << "L'orario di fine deve essere successivo a quello di inizio!\n";
-            delete end;
             continue;
         }
 
         break;
     }
-
-    return new Activity(description, begin, end);
+    Activity a(description, begin, end);
+    return a;
 }

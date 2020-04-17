@@ -12,14 +12,14 @@
 
 class Register {
 public:
-    void addDay(Day *day);
+    void addDay(Day day);
 
     bool findDay(std::string &date);
 
-    Day *getDay(std::string &date);
+    Day &getDay(std::string &date);
 
 private:
-    std::map<std::string, std::unique_ptr<Day>> days;
+    std::map<std::string, Day> days;
 };
 
 

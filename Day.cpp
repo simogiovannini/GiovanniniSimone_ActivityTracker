@@ -5,31 +5,29 @@
 #include <iostream>
 #include "Day.h"
 
-Day::Day(Date *date) {
-    this->date = std::unique_ptr<Date>(date);
+Day::Day(Date date) : date(date) {}
+
+Date &Day::getDate() {
+    return date;
 }
 
-Date *Day::getDate() {
-    return date.get();
-}
-
-void Day::addActivity(Activity *activity) {
+void Day::addActivity(Activity activity) {
     if (activities.empty())
-        activities.push_back(std::unique_ptr<Activity>(activity));
+        activities.push_back(activity);
     else {
         auto it = activities.begin();
         while (it != activities.end()) {
-            if (activity->getBeginTime()->isPrevious((*it)->getBeginTime()))
+            if (activity.getBeginTime().isPrevious((*it).getBeginTime()))
                 break;
             it++;
         }
-        activities.insert(it, std::unique_ptr<Activity>(activity));
+        activities.insert(it, activity);
     }
 }
 
 std::string Day::toString() {
     std::string res;
-    res += "Data: " + date->toString() + "\n\n";
+    res += "Data: " + date.toString() + "\n\n";
     if (activities.empty()) {
         res += "Non hai registrato ancora nessuna attività!\n";
     } else {
@@ -38,7 +36,7 @@ std::string Day::toString() {
         auto it = activities.begin();
         while (it != activities.end()) {
             res += std::to_string(index) + ")\n";
-            res += (*it)->toString() + "\n";
+            res += (*it).toString() + "\n";
             it++;
             index++;
         }
@@ -50,8 +48,8 @@ int Day::getActivitiesLength() {
     return activities.size();
 }
 
-Activity *Day::getFirstActivity() {
-    return activities.front().get();
+Activity &Day::getFirstActivity() {
+    return activities.front();
 }
 
 void Day::removeActivity(int index) {
@@ -60,4 +58,6 @@ void Day::removeActivity(int index) {
         it++;
     activities.erase(it);
 }
+
+Day::Day() : date(0, 0, 0) {}
 
