@@ -39,4 +39,5 @@ TEST(DayTests, addActivity) {
     today.addActivity(a2);
 
     EXPECT_EQ(a2.toString(), today.getFirstActivity().toString());
+    EXPECT_EQ(today.getActivitiesNum(), 3);
 }

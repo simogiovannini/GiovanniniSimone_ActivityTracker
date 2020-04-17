@@ -22,7 +22,7 @@ public:
 
     std::string toString();
 
-    int getActivitiesLength();
+    int getActivitiesNum();
 
     Activity &getFirstActivity();
 

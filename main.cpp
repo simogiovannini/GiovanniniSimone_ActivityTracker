@@ -35,11 +35,11 @@ int main() {
                 std::cout << "\nInserimento avvenuto con successo!";
                 break;
             case 2:
-                if (current.getActivitiesLength() == 0) {
+                if (current.getActivitiesNum() == 0) {
                     std::cout << "\nNon c'è nessuna attività da eliminare!";
                 } else {
                     std::cout << "\nInserisci indice attività da eliminare: ";
-                    int i = InputManager::getNumber(1, current.getActivitiesLength());
+                    int i = InputManager::getNumber(1, current.getActivitiesNum());
                     current.removeActivity(i);
                     std::cout << "\nEliminazione avvenuta con successo!";
                 }
