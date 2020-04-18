@@ -18,6 +18,13 @@ public:
 
     std::string toString();
 
+    void setBegin(Time &_begin);
+
+    void setEnd(Time &_end);
+
+    void setDescription(std::string &_description);
+
+
 private:
 
     std::string description;

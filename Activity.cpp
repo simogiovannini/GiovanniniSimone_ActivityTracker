@@ -17,3 +17,16 @@ std::string Activity::toString() {
     return "Descrizione: " + description + "\nOra inizio: " + begin.toString() + "\nOra fine: " + end.toString() +
            "\n";
 }
+
+void Activity::setBegin(Time &_begin) {
+    this->begin = _begin;
+}
+
+void Activity::setEnd(Time &_end) {
+    this->end = _end;
+}
+
+void Activity::setDescription(std::string &_description) {
+    this->description = _description;
+}
+

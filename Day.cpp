@@ -61,3 +61,20 @@ void Day::removeActivity(int index) {
 
 Day::Day() : date(0, 0, 0) {}
 
+bool Day::modifyActivity(int index, std::string &description) {
+    auto it = activities.begin();
+    std::advance(it, index - 1);
+    (*it).setDescription(description);
+    return true;
+}
+
+bool Day::modifyActivity(int index, Time &time, bool begin) {
+    auto it = activities.begin();
+    std::advance(it, index - 1);
+    if (begin)
+        (*it).setBegin(time);
+    else
+        (*it).setEnd(time);
+    return true;
+}
+
