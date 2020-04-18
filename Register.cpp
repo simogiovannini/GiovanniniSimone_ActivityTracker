@@ -15,3 +15,15 @@ bool Register::findDay(std::string &date) {
 Day &Register::getDay(std::string &date) {
     return days[date];
 }
+
+bool Register::removeDay(std::string date) {
+    if (!findDay(date))
+        return false;
+
+    days.erase(date);
+    return true;
+}
+
+int Register::getDaysNum() {
+    return days.size();
+}

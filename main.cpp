@@ -20,6 +20,7 @@ int main() {
 
     do {
         clearScreen();
+
         std::cout << current.toString();
         std::cout << "\n1) Aggiungi attività\n"
                      "2) Elimina attività\n"
@@ -45,7 +46,10 @@ int main() {
                 }
                 break;
             case 3:
-                reg.addDay(current);
+                if (current.getActivitiesNum() > 0)
+                    reg.addDay(current);
+                else
+                    reg.removeDay(current.getDate().getShortString());
                 std::cout << "\nInserisci data del giorno al quale ti vuoi spostare (yyyy/mm/dd): ";
                 std::string date = InputManager::getDate();
                 if (!reg.findDay(date)) {

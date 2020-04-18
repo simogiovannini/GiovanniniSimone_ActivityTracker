@@ -18,6 +18,10 @@ public:
 
     Day &getDay(std::string &date);
 
+    bool removeDay(std::string date);
+
+    int getDaysNum();
+
 private:
     std::map<std::string, Day> days;
 };
