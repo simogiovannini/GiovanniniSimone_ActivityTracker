@@ -1,7 +1,6 @@
 //
 // Created by simone on 04/04/20.
 //
-#include <iostream>
 #include <gtest/gtest.h>
 #include "../Time.h"
 
