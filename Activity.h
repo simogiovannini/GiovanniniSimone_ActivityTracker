@@ -24,6 +24,7 @@ public:
 
     void setDescription(std::string &_description);
 
+    std::string getDescription();
 
 private:
 

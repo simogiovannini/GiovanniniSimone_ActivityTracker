@@ -8,7 +8,7 @@ void Register::addDay(Day day) {
     days[day.getDate().getShortString()] = day;
 }
 
-bool Register::findDay(std::string &date) {
+bool Register::findDay(std::string date) {
     return days.find(date) != days.end();
 }
 

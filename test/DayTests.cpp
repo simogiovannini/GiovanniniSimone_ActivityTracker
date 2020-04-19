@@ -11,7 +11,7 @@ TEST(DayTests, Constructor) {
     EXPECT_EQ(day.getDate().toString(), "13 Mag 1999");
 }
 
-TEST(DayTests, addActivity) {
+TEST(DayTests, AddActivity) {
     //controllo l'inserimento ordinato
 
     Date d(9, 4, 2020);
@@ -40,4 +40,25 @@ TEST(DayTests, addActivity) {
 
     EXPECT_EQ(a2.toString(), today.getFirstActivity().toString());
     EXPECT_EQ(today.getActivitiesNum(), 3);
+}
+
+TEST(DayTests, ModifyActivity) {
+    Date d(13, 5, 1999);
+    Day day(d);
+
+    Time t1(15, 0);
+    Time t2(18, 0);
+    Activity a("studio", t1, t2);
+
+    day.addActivity(a);
+
+    day.modifyActivity(1, "allenamento");
+
+    EXPECT_EQ(day.getFirstActivity().getDescription(), "allenamento");
+
+    Time t3(13, 30);
+
+    day.modifyActivity(1, t3, true);
+
+    EXPECT_EQ(day.getFirstActivity().getBeginTime().toString(), t3.toString());
 }

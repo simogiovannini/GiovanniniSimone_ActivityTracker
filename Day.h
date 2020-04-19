@@ -28,7 +28,7 @@ public:
 
     void removeActivity(int index);
 
-    bool modifyActivity(int index, std::string &description);
+    bool modifyActivity(int index, std::string description);
 
     bool modifyActivity(int index, Time &time, bool begin);
 

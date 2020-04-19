@@ -14,7 +14,7 @@ class Register {
 public:
     void addDay(Day day);
 
-    bool findDay(std::string &date);
+    bool findDay(std::string date);
 
     Day &getDay(std::string &date);
 

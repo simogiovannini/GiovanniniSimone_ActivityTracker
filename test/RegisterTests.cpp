@@ -27,6 +27,19 @@ TEST(RegisterTests, AddRemoveActivity) {
     EXPECT_EQ(r.removeDay(d2.getDate().getShortString()), false);
 }
 
-TEST(RegisterTests, ModifyActivity) {
+TEST(RegisterTests, FindDay) {
+    Date date1(13, 5, 1999);
+    Day d1(date1);
 
+    Date date2(5, 4, 2002);
+    Day d2(date2);
+
+    Register r;
+    r.addDay(d1);
+    r.addDay(d2);
+
+    r.removeDay(d2.getDate().getShortString());
+
+    EXPECT_EQ(r.findDay(d1.getDate().getShortString()), true);
+    EXPECT_EQ(r.findDay(d2.getDate().getShortString()), false);
 }

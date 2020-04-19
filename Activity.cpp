@@ -30,3 +30,7 @@ void Activity::setDescription(std::string &_description) {
     this->description = _description;
 }
 
+std::string Activity::getDescription() {
+    return description;
+}
+
