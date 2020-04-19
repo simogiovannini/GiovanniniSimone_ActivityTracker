@@ -20,9 +20,9 @@ public:
 
     void addActivity(Activity activity);
 
-    std::string toString();
+    std::string toString() const;
 
-    int getActivitiesNum();
+    int getActivitiesNum() const;
 
     Activity &getFirstActivity();
 
@@ -30,7 +30,7 @@ public:
 
     bool modifyActivity(int index, std::string description);
 
-    bool modifyActivity(int index, Time &time, bool begin);
+    bool modifyActivity(int index, const Time &time, bool begin);
 
 private:
     Date date;

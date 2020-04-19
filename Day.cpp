@@ -25,7 +25,7 @@ void Day::addActivity(Activity activity) {
     }
 }
 
-std::string Day::toString() {
+std::string Day::toString() const {
     std::string res;
     res += "Data: " + date.toString() + "\n\n";
     if (activities.empty()) {
@@ -44,7 +44,7 @@ std::string Day::toString() {
     return res;
 }
 
-int Day::getActivitiesNum() {
+int Day::getActivitiesNum() const {
     return activities.size();
 }
 
@@ -61,14 +61,14 @@ void Day::removeActivity(int index) {
 
 Day::Day() : date(0, 0, 0) {}
 
-bool Day::modifyActivity(int index, std::string description) {
+bool Day::modifyActivity(int index, const std::string description) {
     auto it = activities.begin();
     std::advance(it, index - 1);
     (*it).setDescription(description);
     return true;
 }
 
-bool Day::modifyActivity(int index, Time &time, bool begin) {
+bool Day::modifyActivity(int index, const Time &time, bool begin) {
     auto it = activities.begin();
     std::advance(it, index - 1);
     if (begin)

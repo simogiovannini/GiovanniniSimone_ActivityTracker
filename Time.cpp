@@ -6,7 +6,7 @@
 
 Time::Time(int hour, int minute) : hour(hour), minute(minute) {}
 
-std::string Time::toString() {
+std::string Time::toString() const {
     std::string min;
     min = std::to_string(minute);
     if (minute < 10)
@@ -14,7 +14,7 @@ std::string Time::toString() {
     return (std::to_string(hour) + ":" + min);
 }
 
-bool Time::isPrevious(Time &other) {
+bool Time::isPrevious(const Time &other) const {
     if (hour < other.hour)
         return true;
     else if (hour > other.hour)

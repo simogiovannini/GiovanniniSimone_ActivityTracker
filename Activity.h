@@ -12,19 +12,19 @@
 
 class Activity {
 public:
-    Activity(std::string description, Time &begin, Time &end);
+    Activity(std::string description, const Time &begin, const Time &end);
 
     Time &getBeginTime();
 
-    std::string toString();
+    std::string toString() const;
 
-    void setBegin(Time &_begin);
+    void setBegin(const Time &_begin);
 
-    void setEnd(Time &_end);
+    void setEnd(const Time &_end);
 
-    void setDescription(std::string &_description);
+    void setDescription(const std::string &_description);
 
-    std::string getDescription();
+    std::string getDescription() const;
 
 private:
 

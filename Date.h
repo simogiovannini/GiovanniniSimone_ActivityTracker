@@ -12,11 +12,11 @@ class Date {
 public:
     Date(int day, int month, int year);
 
-    std::string toString();
+    std::string toString() const;
 
-    std::string getShortString();
+    std::string getShortString() const;
 
-    static Date dateFromString(std::string &date);
+    static Date dateFromString(const std::string &date);
 
     static bool checkFormatDate(std::string date);
 
@@ -25,7 +25,7 @@ private:
     int month;
     int year;
 
-    std::string toStringMonth();
+    std::string toStringMonth() const;
 };
 
 

@@ -14,13 +14,13 @@ class Register {
 public:
     void addDay(Day day);
 
-    bool findDay(std::string date);
+    bool findDay(std::string date) const;
 
-    Day &getDay(std::string &date);
+    Day &getDay(const std::string &date);
 
     bool removeDay(std::string date);
 
-    int getDaysNum();
+    int getDaysNum() const;
 
 private:
     std::map<std::string, Day> days;

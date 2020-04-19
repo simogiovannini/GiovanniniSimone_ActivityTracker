@@ -9,11 +9,11 @@ Date::Date(int day, int month, int year) : day(day), month(month), year(year) {
 
 }
 
-std::string Date::toString() {
+std::string Date::toString() const {
     return (std::to_string(day) + " " + toStringMonth() + " " + std::to_string(year));
 }
 
-std::string Date::toStringMonth() {
+std::string Date::toStringMonth() const {
     switch (month) {
         case 1:
             return "Gen";
@@ -43,7 +43,7 @@ std::string Date::toStringMonth() {
     return "";
 }
 
-std::string Date::getShortString() {
+std::string Date::getShortString() const {
     std::string m = std::to_string(month), d = std::to_string(day);
 
     if (month < 10)
@@ -55,7 +55,7 @@ std::string Date::getShortString() {
     return std::to_string(year) + "/" + m + "/" + d;
 }
 
-Date Date::dateFromString(std::string &date) {
+Date Date::dateFromString(const std::string &date) {
     std::string y = date.substr(0, 4);
     std::string m = date.substr(5, 2);
     std::string d = date.substr(8, 2);

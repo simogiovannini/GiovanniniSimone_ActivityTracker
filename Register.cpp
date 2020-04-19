@@ -8,15 +8,15 @@ void Register::addDay(Day day) {
     days[day.getDate().getShortString()] = day;
 }
 
-bool Register::findDay(std::string date) {
+bool Register::findDay(const std::string date) const {
     return days.find(date) != days.end();
 }
 
-Day &Register::getDay(std::string &date) {
+Day &Register::getDay(const std::string &date) {
     return days[date];
 }
 
-bool Register::removeDay(std::string date) {
+bool Register::removeDay(const std::string date) {
     if (!findDay(date))
         return false;
 
@@ -24,6 +24,6 @@ bool Register::removeDay(std::string date) {
     return true;
 }
 
-int Register::getDaysNum() {
+int Register::getDaysNum() const {
     return days.size();
 }
